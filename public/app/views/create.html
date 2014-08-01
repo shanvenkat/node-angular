@@ -1,0 +1,40 @@
+    <script>
+    $(function(){
+        $( "#datepicker" ).datepicker();
+    });
+  </script>  
+
+    <form class="form-horizontal">
+        <h4> Create Form </h4>         
+        First Name<br />
+        <input type="text" ng-model="user.firstname" /><br />        
+        Last Name<br />
+        <input type="text" ng-model="user.lastname" /><br />        
+        Gender: <br />
+        <input type="radio" ng-model="user.gender" value="male" />&nbsp;male
+        &nbsp;
+        <input type="radio" ng-model="user.gender" value="female" />&nbsp;female
+        <br />
+        <br />
+        Age (minimum 18, maximum 65)<br />
+        <input type="text" ng-model="user.age" />
+        <br />
+        DOB <br />
+        <!--<input type="text" ng-model="user.dob" />-->
+        <input type="text" id="datepicker" ng-model="user.dob">
+        <br />
+        Employment Type <br />
+        <!--<input type="text" ng-model="user.emptype" />-->
+        <select ng-model="user.emptype">
+            <option value="Full Time">Full Time</option>
+            <option value="Part Time">Part Time</option>        
+        </select>
+        <br />
+        Email <br />
+        <input type="text" ng-model="user.email" />
+        <br />
+        <br />
+        <button class="btn btn-primary" ng-click="adduser()">Add User</button>  
+        <button class="btn btn-primary" ng-click="clickCancel()" >Cancel</button>   
+    </form>
+    <br />

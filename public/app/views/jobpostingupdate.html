@@ -1,0 +1,90 @@
+ <script>
+    $(function(){
+        $( "#datepicker" ).datepicker();
+    });
+  </script>  
+
+  <!--
+    RequiredSkills: String,
+    JobLocation:String,
+    AreaCode:{ type: Number },
+    TravelRequired: String,
+    Telecommute: String,
+    PayRate: { type: Number },
+    TaxTerm: String,
+    Length: { type: Number },
+    PostedDate: { type: Date, required: 'Posted Date is required!' },
+    PositionID:{ type: Number },
+    AboutCompany: String,
+    PositionSummary: String,
+    MinimumQualifications: String,
+    ContactAddress: String
+    -->
+    <h4> Update Job Posting Form </h4><br />
+    Required Skills <br />
+    <input type="text" ng-model="jobIDToUpdate.RequiredSkills" />
+    <br />
+    Job Location <br />
+    <input type="text" ng-model="jobIDToUpdate.JobLocation" />
+    <br />
+    Area Code *<br />
+    <input type="text" ng-model="jobIDToUpdate.AreaCode" />
+    <br />
+    Travel Required <br />
+    <!--<input type="text" ng-model="jobIDToUpdate.TravelRequired" />-->
+    <select  ng-model="jobIDToUpdate.TravelRequired">
+        <option value={{list.TravelRequired}}  ng-repeat="list in travelrequiredlists">{{list.TravelRequired}}            
+        </option>        
+    </select>
+    <br />
+    Telecommute <br />
+    <!--<input type="text" ng-model="jobIDToUpdate.Telecommute" />-->
+    <select  ng-model="jobIDToUpdate.Telecommute">
+        <option value={{list.TravelRequired}}  ng-repeat="list in travelrequiredlists">{{list.TravelRequired}}            
+        </option>        
+    </select>
+    <br />
+    Pay Rate *<br />
+    <input type="text" ng-model="jobIDToUpdate.PayRate" />    
+    <br />
+    Tax Term <br />
+    <!--<input type="text" ng-model="jobIDToUpdate.TaxTerm" />-->
+
+    <select  ng-model="jobIDToUpdate.TaxTerm">
+        <option value={{taxtermlist.taxterm}}  ng-repeat="taxtermlist in taxtermlists">{{taxtermlist.taxterm}}            
+        </option>        
+    </select>
+
+    <br />
+    Length *<br />
+    <input type="text" ng-model="jobIDToUpdate.Length" />
+    <br />
+    Posted Date <br />
+    <input type="text" id="datepicker" ng-model="jobIDToUpdate.PostedDate" />
+    <br />
+    Position ID *<br />
+    <input type="text" ng-model="jobIDToUpdate.PositionID" />
+    <br />
+    About Company<br />
+    <!--<input type="text" ng-model="jobIDToUpdate.AboutCompany" />-->
+    <textarea rows="8" cols="100" ng-model="jobIDToUpdate.AboutCompany"></textarea>
+    <br />
+    Position Summary<br />
+    <!--<input type="text" ng-model="jobIDToUpdate.PositionSummary" />-->
+    <textarea rows="8" cols="100" ng-model="jobIDToUpdate.PositionSummary"></textarea>
+    <br />
+    Minimum Qualifications<br />
+    <!--<input type="text" ng-model="jobIDToUpdate.MinimumQualifications" />-->
+    <textarea rows="8" cols="100" ng-model="jobIDToUpdate.MinimumQualifications"></textarea>
+    <br />
+    Contact Address<br />
+    <!--<input type="text" ng-model="jobIDToUpdate.ContactAddress" />-->
+    <textarea rows="8" cols="100" ng-model="jobIDToUpdate.ContactAddress"></textarea>
+    <br />
+    <br />
+    <br />
+    <button class="btn btn-primary" ng-click="clickCancel()" >Cancel</button> 
+    <button class="btn btn-primary" ng-click="updateJobId(jobIDToUpdate._id,jobIDToUpdate.RequiredSkills, jobIDToUpdate.JobLocation,jobIDToUpdate.AreaCode,jobIDToUpdate.TravelRequired,jobIDToUpdate.Telecommute,jobIDToUpdate.PayRate,jobIDToUpdate.TaxTerm,jobIDToUpdate.Length,jobIDToUpdate.PostedDate,jobIDToUpdate.PositionID,jobIDToUpdate.AboutCompany,jobIDToUpdate.PositionSummary,jobIDToUpdate.MinimumQualifications,jobIDToUpdate.ContactAddress)">Update Posting</button>
+    <button class="btn btn-primary" ng-click="clickDelete()" >Delete</button>    
+    <br />
+    <br />    

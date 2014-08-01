@@ -1,0 +1,39 @@
+      <script>
+    $(function(){
+        $( "#datepicker" ).datepicker();
+    });
+  </script>  
+    First Name <br />
+    <input type="text"  ng-model="recordtoUpdate.FirstName">
+    <br />
+    Last Name <br />
+    <input type="text" ng-model="recordtoUpdate.LastName">
+    <br />
+    Gender: <br />
+    <input type="radio" ng-model="recordtoUpdate.Gender" value="male" />&nbsp;male
+    &nbsp;
+    <input type="radio" ng-model="recordtoUpdate.Gender" value="female" />&nbsp;female
+    <br />
+    <br />    
+    Age <br />
+    <input type="text" ng-model="recordtoUpdate.Age">   
+  
+    <br />
+    DOB <br />
+   <input type="text" id="datepicker" ng-model="recordtoUpdate.DOB">
+    <br />
+
+    Employment Type <br />
+    <select ng-model="recordtoUpdate.EmploymentType">
+        <option value="Full Time">Full Time</option>
+        <option value="Part Time">Part Time</option>        
+    </select>
+    <br />
+    Email <br />
+    <input type="text" ng-model="recordtoUpdate.email">
+    <br />
+    <button class="btn" ng-click="clickCancel()" >Cancel</button> 
+    <button class="btn btn-primary" ng-click="updateuser(recordtoUpdate._id, recordtoUpdate.FirstName, recordtoUpdate.LastName, recordtoUpdate.Gender, recordtoUpdate.Age, recordtoUpdate.DOB, recordtoUpdate.EmploymentType, recordtoUpdate.email)">Update</button>
+    <button class="btn btn-danger" ng-click="clickDelete()" >Delete</button>    
+    <br />
+    <br />    

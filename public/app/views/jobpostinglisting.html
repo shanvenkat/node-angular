@@ -1,0 +1,86 @@
+<input type="text" ng-model="jobFilter" placeholder="Search for any column..."/>
+{{totalPagestoBrowse}}--{{reccount}}
+<br>
+<table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr>
+            <th>Required Skills</th>  
+            <th>Job Location</th>  
+            <th>Area Code</th>
+            <th>Travel Required</th>  
+             <th>Telecommute</th> 
+             <th>Pay Rate</th> 
+             <th>Tax Term</th>
+             <th>Length</th>                           
+             <th>Posted Date</th>                           
+             <th>Position ID</th>                           
+        </tr>
+    </thead>   
+    <tbody>      
+      <tr ng-repeat="list in jobpostinglists| filter:jobFilter">
+            <td>
+              {{list.RequiredSkills}}  
+            </td>
+            <td>
+                {{list.JobLocation}}  
+            </td>            
+            <td>
+                {{list.AreaCode}} 
+            </td>
+            <td>
+                 {{list.TravelRequired}} 
+            </td>
+            <td>
+                 {{list.Telecommute}} 
+            </td>
+            <td>
+                 {{list.PayRate}} 
+            </td>
+            <td>
+                 {{list.TaxTerm}} 
+            </td>
+            <td>
+                 {{list.Length}} 
+            </td>
+            <td>
+                {{list.PostedDate | date : 'MM-dd-yyyy'}}                             
+            </td>      
+            <td>
+                 {{list.PositionID}}                
+            </td>                    
+            <td>
+            <button class="" ng-click="deleteuser(list._id)">Delete</button> 
+            </td>
+            <td>
+                <a href="#/jobpostingupdate/{{list._id}}" >Update Job ID</a><br/>
+            </td>                 
+        </tr>             
+    </tbody>
+    <tfoot>
+                    <td colspan="8">
+                        <div class="pagination pull-right">
+                            <ul>
+                                <li ng-class="">
+                                    <a href ng-click="firstPage(1)">First</a>
+                                </li>
+                                <li ng-class="{disabled: currentPage == 1}">
+                                    <a href ng-click="prevPage()"><< Prev</a>
+                                </li>                               
+                                <li ng-repeat="n in range(buttonstoDisplay)"
+                                    ng-class="{active: n == currentPage}"
+                                    ng-click="pageChanged(n)">
+                                    <a href ng-bind="n"></a>
+                                </li>
+                                <li ng-class="{disabled: currentPage == totalPagestoBrowse}">
+                                    <a href ng-click="nextPage()">Next >></a>
+                                </li>
+                                <li >
+                                    <a href ng-click="lastPage(totalPagestoBrowse)">Last</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+        </tfoot>
+
+</table> 
+<br>

@@ -1,0 +1,77 @@
+<br/>
+<input type="text" ng-model="userFilter" placeholder="Search for any column..." class="input-xlarge input-medium search-query" />
+<i class="icon-search"></i>
+<br/>
+<br/>
+<table class="table table-hover table-striped table-condensed table-bordered"  >
+    <thead>
+        <tr>
+            <th>First Name</th>  
+            <th>Last Name</th>  
+            <th>Gender</th>
+            <th>Age</th>  
+             <th>Date Of Birth</th> 
+             <th>Employment Type</th> 
+             <th>Email</th>                           
+        </tr>
+    </thead>
+
+    <tbody>      
+      <tr class="success" ng-repeat="userlist in pageLists| filter:userFilter">
+            <td>
+              {{userlist.FirstName}}  
+            </td>
+            <td>
+                {{userlist.LastName}} 
+            </td>            
+            <td>
+                {{userlist.Gender}} 
+            </td>
+            <td>
+                 {{userlist.Age}}            
+            </td>
+            <td>
+                {{userlist.DOB | date : 'MM-dd-yyyy'}}                             
+            </td>      
+            <td>
+                 {{userlist.EmploymentType}}                
+            </td>
+            <td>
+                 {{userlist.email}}                
+            </td>         
+            <td>
+            <button class="btn btn-danger" ng-click="deleteuser(userlist._id)">Delete</button> 
+            </td>
+            <td>
+                <a class="btn btn-primary" href="#/update/{{userlist._id}}" >Update</a><br/>
+            </td>                 
+        </tr>             
+    </tbody>
+    <tfoot>
+                    <td colspan="8">
+                        <div class="pagination pull-right">
+                            <ul>
+                                <li ng-class="">
+                                    <a href ng-click="firstPage(1)">First</a>
+                                </li>
+                                <li ng-class="{disabled: currentPage == 1}">
+                                    <a href ng-click="prevPage()"><< Prev</a>
+                                </li>                               
+                                <li ng-repeat="n in range(buttonstoDisplay)"
+                                    ng-class="{active: n == currentPage}"
+                                    ng-click="pageChanged(n)">
+                                    <a href ng-bind="n"></a>
+                                </li>
+                                <li ng-class="{disabled: currentPage == totalPagestoBrowse}">
+                                    <a href ng-click="nextPage()">Next >></a>
+                                </li>
+                                <li >
+                                    <a href ng-click="lastPage(totalPagestoBrowse)">Last</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </td>
+        </tfoot>
+
+</table> 
+<br>
