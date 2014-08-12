@@ -1,5 +1,6 @@
 /* Register angular module with custom name myapp, all other Angular objects will add it to this custom angular module, 
-Here Other Anulag objects used are Controller, Service, RouteProvider etc. */
+Here Other Anulag objects used are Controller, Service, RouteProvider etc. 
+This controller takes care of JobListing and User CRUD Operations*/
 
 var myapp = angular.module('myapp', ['ngRoute'])
 
